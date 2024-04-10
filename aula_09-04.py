@@ -3,8 +3,8 @@ i = int(input("Digite a posição que deseja adicionar a letra: "))
 print(nome[i])
 
 if nome[i] == "s":
-    print(nome[:i]+"r"+nome[-1:])
+    print(nome[:i]+"r"+nome[i+1:])
 elif nome[i] == "m" : 
-    print(nome[:i]+"n"+nome[-1:])
+    print(nome[:i]+"n"+nome[i+1:])
 else:
-    print(nome[:i-1]+nome[-1:])
+    print(nome[:i]+nome[i+1:])
