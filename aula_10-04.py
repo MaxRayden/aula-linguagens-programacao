@@ -12,7 +12,7 @@ if media < 7:
 else:
     print("APROVADO")
 
-
+#>>>>>>>
 
 #minha solução
 
