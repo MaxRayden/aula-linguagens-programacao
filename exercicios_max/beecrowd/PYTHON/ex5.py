@@ -1,7 +1,5 @@
-num = int(input())
-
-while num != 0:
-    if num % 2 == 0:
-        potencia = num**2
-        print(num,"^2 =", potencia)
-    num = num-1
+n = int(input())
+for numero in range(1, n + 1):
+    if numero % 2 == 0:
+        quadrado = numero * numero
+        print(f"{numero}^2 = {quadrado}")
