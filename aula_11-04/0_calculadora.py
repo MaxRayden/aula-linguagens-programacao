@@ -1,5 +1,12 @@
+def soma(a,b):
+    print(a+b)
+def subtracao(a,b):
+    print(a-b)   
+def multiplicacao(a,b):
+    print(a*b)
+def divisao(a,b):
+    print(a/b)
 valor1 = float(input("Digite um número: "))
-
 while valor1 != -1:
     operador = input("Digite um operador: ")
     valor2 = float(input("Digite outro número: "))
@@ -7,16 +14,14 @@ while valor1 != -1:
         break
     resultado = 0
     if operador == '+':
-        resultado = valor1 + valor2
+        soma(valor1,valor2),"\n\n"
     elif operador == '-':
-        resultado = valor1-valor2
+        subtracao(valor1,valor2),"\n\n"
     elif operador == '*':
-        resultado = valor1*valor2
+        multiplicacao(valor1,valor2),"\n\n"
     elif operador == '/':
-        resultado = valor1/valor2
+        divisao(valor1,valor2),"\n\n"
     else:
         print('operador inválido')
-    print(resultado,"\n\n")
-    valor1 = float(input("Digite um número: "))
-    
+    valor1 = float(input("Digite um número: "))   
 print("encerrando...")
