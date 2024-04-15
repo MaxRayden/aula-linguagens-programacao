@@ -1,28 +1,16 @@
-def tamanho_da_lista(a):
-    i = 0
-    j = 0 
-    for n in a:
-        i += 1
-        for k in n:
-            j +=1
+def tamanho_lista(lista):
+    contador = 0
+    for elemento in lista:
+        contador +=1
+    return contador
 
-    print(i)
-    print(j)       
+def tamanho_palavras(lista):
+    qtd_palavras = tamanho_lista(lista)
+    print('quantidade de palavras na lista:', qtd_palavras)
+    posicao = 1
+    for palavra in lista:
+        print('quantidade de letras na palavra', posicao,':', tamanho_lista(palavra) )
+        posicao += 1
 
-entrada = ["oi", "tubem", "palavra","quadro"]
-print("usando len(): ", len(entrada))
-print("usando minha função: ",tamanho_da_lista(entrada))
-
-
-
-#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-#def tamanho_palavra(palavra):
-#    i = 0
-#    for n in palavra:
-#        i += 1
-#    return i
-#palavra = input()
-#print("usando len(): ", len(palavra))
-#print("usando minha função: ",tamanho_palavra(palavra))
+lista = ["oii", "tudo bem", "tchau", "?", "não"]
+tamanho_palavras(lista)
