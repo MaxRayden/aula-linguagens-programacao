@@ -7,10 +7,9 @@ def tamanho_da_lista(a):
             j +=1
 
     print(i)
-    print(j)        
-    
+    print(j)       
 
-entrada = ["oi", "tudo", "bem"]
+entrada = ["oi", "tubem", "palavra","quadro"]
 print("usando len(): ", len(entrada))
 print("usando minha função: ",tamanho_da_lista(entrada))
 
