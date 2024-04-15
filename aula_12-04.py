@@ -12,5 +12,5 @@ def tamanho_palavras(lista):
         print('quantidade de letras na palavra', posicao,':', tamanho_lista(palavra) )
         posicao += 1
 
-lista = ["oii", "tudo bem", "tchau", "?", "não"]
+lista = ["oii", "tubem", "palavra", "quadro"]
 tamanho_palavras(lista)
