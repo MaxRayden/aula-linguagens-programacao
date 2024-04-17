@@ -1,6 +1,6 @@
 from datetime import datetime
 
-with open('ex01.txt', 'w') as arquivo:
+def cabecalho(arquivo):
     arquivo.write('---------------------------------\n')
     arquivo.write('MAX RAYDEN DE SOUZA REBELO JUNIOR\n')
     hoje = datetime.now().strftime('%d/%m/%Y')
@@ -9,7 +9,9 @@ with open('ex01.txt', 'w') as arquivo:
     arquivo.write('MANAUAS-AM')
     arquivo.write('\n')
     arquivo.write('23\tJAPIIM')
-    arquivo.write('\n---------------------------------\n')
+    arquivo.write('\n---------------------------------\n')  
+with open('ex01.txt', 'w') as arquivo:
+    cabecalho(arquivo)
 
     disciplina = input('Digite uma Matéria: ')
     nota = input('Digite uma nota: ')
