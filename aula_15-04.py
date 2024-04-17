@@ -19,3 +19,5 @@ with open('alunos.csv', 'r') as arquivo:
             hoje = datetime.now()
             idade = hoje.year - data_nascimento.year
             print('NOME>', nome_chamada, 'IDADE>', idade)
+        else: 
+            print("aluno não encontrado")
