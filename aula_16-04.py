@@ -10,6 +10,7 @@ def cabecalho(arquivo):
     arquivo.write('\n')
     arquivo.write('23\tJAPIIM')
     arquivo.write('\n---------------------------------\n')  
+    
 with open('ex01.txt', 'w') as arquivo:
     cabecalho(arquivo)
 
