@@ -33,7 +33,7 @@ bem_vindo()
 imprimir_tabuleiro(tabuleiro)
 jogador = 'X'
 
-while resultado == '':
+while resultado != 0:
     print(f'É a vez do Jogador {jogador}, em qual posição você deseja jogar?\n>')
     jogada = input()
     linha, coluna = jogada.split(' ')
@@ -42,6 +42,8 @@ while resultado == '':
     marcar_jogada(jogador,linha,coluna)
     imprimir_tabuleiro(tabuleiro)
     atualiza_txt()
-    verifica_vitoria(resultado,tabuleiro,jogador)
+    #verifica_vitoria(resultado,tabuleiro,jogador)
+    resultado = verifica_vitoria(resultado,tabuleiro,jogador)
     jogador = 'O' if jogador == 'X' else 'X'
+print('Fim de Jogo')
     
