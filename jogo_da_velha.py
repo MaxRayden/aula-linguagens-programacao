@@ -1,19 +1,47 @@
-
+from verifica_vitoria import verifica_vitoria
+tabuleiro = [[' ',' ',' '],
+             [' ',' ',' '],
+             [' ',' ',' ']]
+resultado = ''
 def bem_vindo():
-    print('----------')
+    print('---------------')
     print('Bem vindo ao jogo da Velha!')
-    print('----------')
+    print('---------------')
 
-def exibe_tabuleiro(tabuleiro):
-    for i in range(3):
-        for j in range(3):
-            print(tabuleiro[i][j])
+def imprimir_tabuleiro(tabuleiro):
+    for linha in  range(3):
+        print('|'.join(tabuleiro[linha]))
+        if linha < 2:
+            print('-' * 5)
 
+def marcar_jogada (jogador,linha,coluna):
+    if tabuleiro[linha][coluna] == ' ':
+        tabuleiro[linha][coluna] = jogador
 
-#def marcar_jogo(jogador, a, b):
+def atualiza_txt():
+    string = tabuleio_string(tabuleiro)
+    with open('tabuleiro.txt', 'w') as arquivo:
+        arquivo.write(string)
 
-tabuleiro = [['','',''],
-             ['','',''],
-             ['','','']]
+def tabuleio_string(tabuleiro):
+    string = ""
+    for linha in tabuleiro:
+        string += "|".join(linha) + "\n"
+    return string
+
 bem_vindo()
-exibe_tabuleiro(tabuleiro)
+imprimir_tabuleiro(tabuleiro)
+jogador = 'X'
+
+while resultado == '':
+    print(f'É a vez do Jogador {jogador}, em qual posição você deseja jogar?\n>')
+    jogada = input()
+    linha, coluna = jogada.split(' ')
+    linha = int(linha)
+    coluna = int(coluna)
+    marcar_jogada(jogador,linha,coluna)
+    imprimir_tabuleiro(tabuleiro)
+    atualiza_txt()
+    verifica_vitoria(resultado,tabuleiro,jogador)
+    jogador = 'O' if jogador == 'X' else 'X'
+    
