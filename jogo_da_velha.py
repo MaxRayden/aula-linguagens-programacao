@@ -15,8 +15,18 @@ def imprimir_tabuleiro(tabuleiro):
             print('-' * 5)
 
 def marcar_jogada (jogador,linha,coluna):
-    if tabuleiro[linha][coluna] == ' ':
-        tabuleiro[linha][coluna] = jogador
+    cont = 0
+    while cont == 0:
+        if tabuleiro[linha][coluna] == ' 'and tabuleiro[linha][coluna] != 'X' and tabuleiro[linha][coluna] != "O":
+            tabuleiro[linha][coluna] = jogador
+            cont += 1
+        else:
+            print('o campo já está preenchido!')
+            print(f'É a vez do Jogador {jogador}, em qual posição você deseja jogar?\n>')
+            jogada = input()
+            linha, coluna = jogada.split(' ')
+            linha = int(linha)
+            coluna = int(coluna)
 
 def atualiza_txt():
     string = tabuleio_string(tabuleiro)
@@ -40,10 +50,11 @@ while resultado != 0:
     linha = int(linha)
     coluna = int(coluna)
     marcar_jogada(jogador,linha,coluna)
+    print(jogador)       
     imprimir_tabuleiro(tabuleiro)
     atualiza_txt()
-    #verifica_vitoria(resultado,tabuleiro,jogador)
     resultado = verifica_vitoria(resultado,tabuleiro,jogador)
     jogador = 'O' if jogador == 'X' else 'X'
+    
 print('Fim de Jogo')
     
