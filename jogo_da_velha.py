@@ -35,8 +35,11 @@ def atualiza_txt():
 
 def tabuleio_string(tabuleiro):
     string = ""
-    for linha in tabuleiro:
-        string += "|".join(linha) + "\n"
+    for linha in  range(3):
+        string += '|'.join(tabuleiro[linha])+'\n'
+        if linha < 2:
+            string += '-'*5 +'\n'
+               
     return string
 
 bem_vindo()
@@ -44,17 +47,15 @@ imprimir_tabuleiro(tabuleiro)
 jogador = 'X'
 
 while resultado != 0:
-    print(f'É a vez do Jogador {jogador}, em qual posição você deseja jogar?\n>')
-    jogada = input()
+    print(f'É a vez do Jogador {jogador}, em qual posição você deseja jogar?\n')
+    jogada = input('>')
     linha, coluna = jogada.split(' ')
     linha = int(linha)
     coluna = int(coluna)
-    marcar_jogada(jogador,linha,coluna)
-    print(jogador)       
+    marcar_jogada(jogador,linha,coluna)      
     imprimir_tabuleiro(tabuleiro)
     atualiza_txt()
     resultado = verifica_vitoria(resultado,tabuleiro,jogador)
     jogador = 'O' if jogador == 'X' else 'X'
     
 print('Fim de Jogo')
-    
