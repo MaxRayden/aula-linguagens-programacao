@@ -1,23 +1,15 @@
-def menu():
-    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tVISUALIZAR ITENS NO CARRINHO')
+def menu_inicial():
+    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
     print(opcoes)
-    busca, adicionar, visualizar = opcoes.strip(' ').split('|')
-    print(busca, adicionar, visualizar)
     opcao = input('Digite a opção desejada: ')
     opcao = opcao.lower()
-    contador = 0
-    while contador != 0:
-        if opcao == busca.lower():
-            print ('deu ruim')
-            contador +=1
-        elif opcao == 'adicionar item no carrinho':
-            print('sei lá')
-            contador +=1
-        elif opcao == 'visualizar iten no carrinho':
-            print('outro sei lá')
-            contador +=1
-        else:
-            contador = 0
+    if opcao == 'nova busca':
+        busca_produto()
+    elif opcao == 'adicionar item no carrinho':
+        print('sei lá')
+        return opcao
+    elif opcao == 'finalizar compra':
+        print('outro sei lá')
 
 def welcome():
     print('Seja Bem vindo!')
@@ -39,7 +31,29 @@ def busca_produto():
                 break
     else:
         print('Produto indisponível!')
-        
-welcome()
+
+def adiciona_item(carrinho):
+    item = input('Para adicionar um item ao carrinho digite o ódigo do item desejado:\n>> ')
+    with open ('produtos.csv', 'r') as arquivo:
+        next(arquivo)
+        todos_itens = arquivo.readlines()
+        item = input('Para adicionar um item ao carrinho digite o ódigo do item desejado:\n>> ')
+        for linha in todos_itens:
+            produto, categoria, valor, quantidade, codigo = linha.strip('\n').split(',')
+            if item in codigo:
+                carrinho.append(linha)
+                print(carrinho)
+                break
+            else:
+                print('Produto não encontrado! ')
+
+    
+    carrinho.append(item)
+    return carrinho
+
+carrinho = []     
+#welcome()
 busca_produto()
-menu()
+#menu_inicial()
+adiciona_item(carrinho)
+print(carrinho)
