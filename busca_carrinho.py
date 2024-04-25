@@ -1,22 +1,11 @@
-def menu_inicial():
-    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
-    print(opcoes)
-    opcao = input('Digite a opção desejada: ')
-    opcao = opcao.lower()
-    if opcao == 'nova busca':
-        busca_produto()
-    elif opcao == 'adicionar item no carrinho':
-        print('sei lá')
-        return opcao
-    elif opcao == 'finalizar compra':
-        print('outro sei lá')
-
+carrinho = []  
+        
 def welcome():
     print('Seja Bem vindo!')
     print('-'*10)
 
 def busca_produto():
-    with open ('produtos.csv', 'r') as arquivo:
+    with open ('produtos.csv', 'r', encoding='utf-8') as arquivo:
         next(arquivo)
         lista_linhas = arquivo.readlines()
         busca =(input('Digite o que você procura: '))
@@ -33,27 +22,73 @@ def busca_produto():
         print('Produto indisponível!')
 
 def adiciona_item(carrinho):
-    item = input('Para adicionar um item ao carrinho digite o ódigo do item desejado:\n>> ')
-    with open ('produtos.csv', 'r') as arquivo:
+    with open ('produtos.csv', 'r', encoding='utf-8') as arquivo:
         next(arquivo)
         todos_itens = arquivo.readlines()
-        item = input('Para adicionar um item ao carrinho digite o ódigo do item desejado:\n>> ')
+        item = input('Para adicionar um item ao carrinho digite o código do item desejado:\n>> ')
+        qtd = int(input(f"Digite a quantidade de {item} que deseja adicionar ao carrinho\n>>"))
         for linha in todos_itens:
             produto, categoria, valor, quantidade, codigo = linha.strip('\n').split(',')
-            if item in codigo:
-                carrinho.append(linha)
-                print(carrinho)
+            if item == codigo:
+                for i in range(qtd):
+                    carrinho.append(codigo+','+produto+','+valor)
+                print('\nProduto Adicionado com Sucesso!\n')
                 break
             else:
-                print('Produto não encontrado! ')
-
-    
-    carrinho.append(item)
+                print('Produto não encontrado')
+                break
     return carrinho
 
-carrinho = []     
-#welcome()
+def visualizar_carrinho(carrinho):
+    if not carrinho:
+        soma = 0
+        qtd = 1
+        print('\t\tCARRINHO')
+        for item in carrinho:
+            linha = item.split(',')
+            print(qtd,'.Produto',linha[0],'\t|\t','R$ ',linha[2])
+            qtd+=1
+            soma = soma + float(linha[2])
+            soma_arredondada = round(soma, 2)
+        print(f'TOTAL:\t\t\t\t R$ {soma_arredondada}')
+    else:
+        print('carrinho vazio')
+
+def menu_meio(carrinho):
+    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tVISUALIZAR CARRINHO\t|\tFINALIZAR COMPRA')
+    print(opcoes)
+    opcao = input('Digite a opção desejada: ')
+    opcao = opcao.lower()
+    if opcao == 'nova busca':
+        busca_produto()
+    elif opcao == 'adicionar item no carrinho':
+        carrinho = adiciona_item(carrinho)
+    elif opcao == 'finalizar compra':
+        visualizar_carrinho(carrinho)
+        return 0
+    elif opcao == 'visualizar carrinho':
+        visualizar_carrinho(carrinho)
+        
+welcome()
 busca_produto()
-#menu_inicial()
-adiciona_item(carrinho)
-print(carrinho)
+
+opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
+print(opcoes)
+opcao = input('Digite a opção desejada: ')
+opcao = opcao.lower()
+while opcao != 'finalizar compra':
+    if opcao == 'nova busca':
+        busca_produto()
+
+    elif opcao == 'adicionar item no carrinho':
+        carrinho = adiciona_item(carrinho)
+    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
+    print(opcoes)
+    opcao = input('Digite a opção desejada: ')
+    opcao = opcao.lower()    
+
+if not carrinho:
+    print('Saindo....')
+else:
+    visualizar_carrinho
+    print('Compra Finalizada....')
