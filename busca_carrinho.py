@@ -34,16 +34,15 @@ def adiciona_item(carrinho):
                     carrinho.append(codigo+','+produto+','+valor)
                 print('\nProduto Adicionado com Sucesso!\n')
                 break
-            else:
-                print('Produto não encontrado')
-                break
+        else:
+            print('Produto não encontrado')
     return carrinho
 
 def visualizar_carrinho(carrinho):
-    if not carrinho:
+    if not len(carrinho) == 0:
         soma = 0
         qtd = 1
-        print('\t\tCARRINHO')
+        print('\n\n\t\tCARRINHO')
         for item in carrinho:
             linha = item.split(',')
             print(qtd,'.Produto',linha[0],'\t|\t','R$ ',linha[2])
@@ -72,23 +71,25 @@ def menu_meio(carrinho):
 welcome()
 busca_produto()
 
-opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
-print(opcoes)
-opcao = input('Digite a opção desejada: ')
-opcao = opcao.lower()
-while opcao != 'finalizar compra':
-    if opcao == 'nova busca':
-        busca_produto()
-
-    elif opcao == 'adicionar item no carrinho':
-        carrinho = adiciona_item(carrinho)
+while len(carrinho) == 0:
     opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
     print(opcoes)
     opcao = input('Digite a opção desejada: ')
-    opcao = opcao.lower()    
-
-if not carrinho:
-    print('Saindo....')
-else:
-    visualizar_carrinho
-    print('Compra Finalizada....')
+    opcao = opcao.lower()
+    if opcao == 'nova busca':
+        busca_produto()
+    elif opcao == 'adicionar item no carrinho':
+        carrinho = adiciona_item(carrinho)
+    elif opcao == 'finalizar compra':
+        if not carrinho:
+            print('Saindo....')
+            break
+        else:
+            visualizar_carrinho
+            print('Compra Finalizada....')
+            break
+if not len(carrinho) > 0:
+    exit(0)
+contador = 1
+while contador != 0:          
+    contador = menu_meio(carrinho)
