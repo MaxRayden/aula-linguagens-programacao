@@ -25,9 +25,11 @@ def adiciona_item(carrinho):
     with open ('produtos.csv', 'r', encoding='utf-8') as arquivo:
         next(arquivo)
         todos_itens = arquivo.readlines()
-        item = input('Para adicionar um item ao carrinho digite o código do item desejado:\n>> ')
-        qtd = int(input(f"Digite a quantidade de {item} que deseja adicionar ao carrinho\n>>"))
+        prod = input('Para adicionar um item ao carrinho digite o código do item desejado:\n>> ')
+        item = prod.upper()
+        qtd = int(input(f"Digite a quantidade que deseja adicionar ao carrinho\n>>"))
         for linha in todos_itens:
+            
             produto, categoria, valor, quantidade, codigo = linha.strip('\n').split(',')
             if item == codigo:
                 for i in range(qtd):
@@ -93,3 +95,4 @@ if not len(carrinho) > 0:
 contador = 1
 while contador != 0:          
     contador = menu_meio(carrinho)
+print('saindo...')
