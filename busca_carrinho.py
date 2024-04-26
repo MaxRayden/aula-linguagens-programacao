@@ -14,7 +14,7 @@ def busca_produto():
     for linha in lista_linhas:
         produto, categoria, valor, quantidade, codigo = linha.strip('\n').split(',')
         if busca in produto.lower() or busca in categoria.lower () or busca in codigo.lower():
-            print(f'Produto: {produto} | Código: {codigo} | Quantidade Disponível: {quantidade} \t|\t Valor: R$ {float(valor):.2f}')
+            print(f'Produto: {produto.ljust(40)} | Código: {codigo} | Quantidade Disponível: {quantidade} \t|\t Valor: R$ {float(valor):.2f}')
             contador += 1
             if contador == 5:
                 break
@@ -47,7 +47,7 @@ def visualizar_carrinho(carrinho):
         print('\n\n\t\tCARRINHO')
         for item in carrinho:
             linha = item.split(',')
-            print(qtd,'.Produto',linha[0],'\t|\t','R$ ',linha[2])
+            print(qtd,'.Produto',linha[1],'\t|\t','R$ ',linha[2])
             qtd+=1
             soma = soma + float(linha[2])
             soma_arredondada = round(soma, 2)
@@ -56,33 +56,33 @@ def visualizar_carrinho(carrinho):
         print('carrinho vazio')
 
 def menu_meio(carrinho):
-    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tVISUALIZAR CARRINHO\t|\tFINALIZAR COMPRA')
+    opcoes = ('\n\n\t1.NOVA BUSCA\t|\t2.ADICIONAR ITEM NO CARRINHO\t|\t3.VISUALIZAR CARRINHO\t|\t4.FINALIZAR COMPRA')
     print(opcoes)
-    opcao = input('Digite a opção desejada: ')
+    opcao = input('Digite a opção desejada: (1 , 2 , 3 , 4)\n>')
     opcao = opcao.lower()
-    if opcao == 'nova busca':
+    if opcao == '1':
         busca_produto()
-    elif opcao == 'adicionar item no carrinho':
+    elif opcao == '2':
         carrinho = adiciona_item(carrinho)
-    elif opcao == 'finalizar compra':
+    elif opcao == '4':
         visualizar_carrinho(carrinho)
         return 0
-    elif opcao == 'visualizar carrinho':
+    elif opcao == '3':
         visualizar_carrinho(carrinho)
         
 welcome()
 busca_produto()
 
 while len(carrinho) == 0:
-    opcoes = ('\n\n\tNOVA BUSCA\t|\tADICIONAR ITEM NO CARRINHO\t|\tFINALIZAR COMPRA')
+    opcoes = ('\n\n\t1.NOVA BUSCA\t|\t2.ADICIONAR ITEM NO CARRINHO\t|\t3.FINALIZAR COMPRA')
     print(opcoes)
-    opcao = input('Digite a opção desejada: ')
+    opcao = input('Digite a opção desejada: (1 , 2 , 3)\n>')
     opcao = opcao.lower()
-    if opcao == 'nova busca':
+    if opcao == '1':
         busca_produto()
-    elif opcao == 'adicionar item no carrinho':
+    elif opcao == '2':
         carrinho = adiciona_item(carrinho)
-    elif opcao == 'finalizar compra':
+    elif opcao == '3':
         if not carrinho:
             print('Saindo....')
             break
