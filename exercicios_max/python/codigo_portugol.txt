@@ -1,0 +1,359 @@
+programa {
+  inclua biblioteca Texto --> texto
+  funcao inicio() {
+    cadeia optport, optproj, optuser, resumo, enviar, optprojn,arquivo
+    inteiro prazo, cat, cate
+    logico continuar = verdadeiro
+    logico continuarn = verdadeiro
+
+
+    enquanto (continuar) {
+      continuarn = verdadeiro
+      escreva ("\n", "############## Bem Vindo ao BRIEFING.COM!!! ##############\n\n########################## MENU ##########################\n\n\n|| CRIAR || MEU PORTF�LIO || BUSCAR PROJETO || SAIR ||", "\n\n\n", "DIGITE A OP��O DESEJADA:  ")
+      leia (optuser)
+      optuser = texto.caixa_baixa(optuser)
+      se (optuser == "criar"){
+        //-----------------------------------------------------------
+        escreva("\n\n","Perfeito! Vamos criar um projeto! \n\nEscolha a categoria do projeto digitando uma das op��es: \n(1)-Motion-design\n(2)-Webdesign\n(3)-Filmaker\n(4)-Logo e Logotipo\n(5)-Vetoriza��o\n\n")
+        leia(cat) 
+          enquanto (cat < 1 ou cat > 5) {
+            escreva("########## Op��o inv�lida ##########\nEscolha uma op��o V�lida\n")
+            leia(cat)
+          } 
+          se (cat == 1){
+            escreva("########## Projeto de Motion Design ##########\n")
+            escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+            leia(resumo)
+            enquanto (resumo == ""){
+              escreva("########## Campo Obrigat�rio ##########\n")
+              escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+              leia(resumo)
+            }
+            escreva(" \n")
+            escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+            leia(prazo)
+            enquanto (prazo < 3){
+              escreva("\n########## Digite um prazo de no m�nimo 3 dias ##########\n")
+              escreva("\nQual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+              leia(prazo)
+            }
+            escreva("Deseja Enviar Projeto?(s/n)\n")
+            leia(enviar)
+            enquanto (enviar != "s" e enviar != "n"){
+              escreva("Digite (s/n)")
+              leia(enviar)
+              enviar = texto.caixa_baixa(enviar)}
+            se (enviar == "s"){
+              escreva("\n########## Projeto enviado com Sucesso! ##########\n")
+              escreva("\n################## Menu inicial ##################\n")
+            }senao se (enviar == "n"){
+              escreva("\n######## Seu rascunho foi salvo!! ########\n")
+            }
+          }
+          senao se (cat == 2){
+            escreva("########## Projeto de Web Design ##########\n")
+            escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+            leia(resumo)
+            enquanto (resumo == ""){
+              escreva("########## Campo Obrigat�rio ##########\n")
+              escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+              leia(resumo)
+            }
+            escreva(" \n")
+            escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+            leia(prazo)
+            enquanto (prazo < 3){
+              escreva("########## Digite um prazo de no m�nimo 3 dias ##########\n")
+              escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+              leia(prazo)
+            }
+            escreva("Deseja Enviar Projeto?(s/n)\n")
+            leia(enviar)
+            enquanto (enviar != "s" e enviar != "n"){
+              escreva("Digite (s/n)")
+              leia(enviar)}
+            se (enviar == "s"){
+              escreva("\n########## Projeto enviado com Sucesso! ##########\n")
+              escreva("\n################## Menu inicial ##################\n")
+            }senao se (enviar == "n"){
+              escreva("\n######## Seu rascunho foi salvo!! ########\n")
+            }
+          }
+          se (cat == 3){
+            escreva("########## Projeto de Filmaker ##########\n")
+            escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+            leia(resumo)
+            enquanto (resumo == ""){
+              escreva("########## Campo Obrigat�rio ##########\n")
+              escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+              leia(resumo)
+            }
+            escreva(" \n")
+            escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+            leia(prazo)
+            enquanto (prazo < 3){
+              escreva("########## Digite um prazo de no m�nimo 3 dias ##########\n")
+              escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+              leia(prazo)
+            }
+            escreva("Deseja Enviar Projeto?(s/n)\n")
+            leia(enviar)
+            enquanto (enviar != "s" e enviar != "n"){
+              escreva("Digite (s/n)")
+              leia(enviar)}
+            se (enviar == "s"){
+              escreva("\n########## Projeto enviado com Sucesso! ##########\n")
+              escreva("\n################## Menu inicial ##################\n")
+            }senao se (enviar == "n"){
+              escreva("\n######## Seu rascunho foi salvo!! ########\n")
+            }
+          }
+          se (cat == 4){
+            escreva("########## Projeto de Logo e Logotipo ##########\n")
+            escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+            leia(resumo)
+            enquanto (resumo == ""){
+              escreva("########## Campo Obrigat�rio ##########\n")
+              escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+              leia(resumo)
+            }
+            escreva(" \n")
+            escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+            leia(prazo)
+            enquanto (prazo < 3){
+              escreva("########## Digite um prazo de no m�nimo 3 dias ##########\n")
+              escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+              leia(prazo)
+            }
+            escreva("Deseja Enviar Projeto?(s/n)\n")
+            leia(enviar)
+            enquanto (enviar != "s" e enviar != "n"){
+              escreva("Digite (s/n)")
+              leia(enviar)
+            }
+            se (enviar == "s"){
+              escreva("\n########## Projeto enviado com Sucesso! ##########\n")
+              escreva("\n################## Menu inicial ##################\n")
+            }senao se (enviar == "n"){
+              escreva("\n######## Seu rascunho foi salvo!! ########\n")
+            }
+          }
+          se (cat == 5){
+            escreva("########## Projeto de Vetoriza��o ##########\n")
+            escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+            leia(resumo)
+            enquanto (resumo == ""){
+              escreva("########## Campo Obrigat�rio ##########\n")
+              escreva("Escreva um breve resumo sobre o projeto que voc� deseja criar\n")
+              leia(resumo)
+            }
+            escreva(" \n")
+            escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+            leia(prazo)
+            enquanto (prazo < 3){
+              escreva("########## Digite um prazo de no m�nimo 3 dias ##########\n")
+              escreva("Qual o prazo para entrega do seu projeto? (m�nimo de 3 dias!!!)\n")
+              leia(prazo)
+            }
+            escreva("Deseja Enviar Projeto?(s/n)\n")
+            leia(enviar)
+            enquanto (enviar != "s" e enviar != "n"){
+              escreva("Digite (s/n)")
+              leia(enviar)}
+            se (enviar == "s"){
+              escreva("\n########## Projeto enviado com Sucesso! ##########\n")
+              escreva("\n################## Menu inicial ##################\n")
+            }senao se (enviar == "n"){
+              escreva("\n######## Seu rascunho foi salvo!! ########\n")
+            }
+          }
+        }
+        //-----------------------------------------------------------
+      senao se (optuser == "meu portf�lio"){
+        escreva ("\n\n###################### MEU PORTF�LIO ######################\n\n\n|| VISUALIZAR || MODIFICAR || UPLOAD || SAIR ||\n\n\n\n","DIGITE A OP��O DESEJADA:  ")
+        leia (optport)
+        optport = texto.caixa_baixa(optport)
+        se (optport == "visualizar") {
+          escreva ("Selecione um projeto:", "\n", "(1)-Projeto 1", "\n", "(2)-Projeto 2", "\n", "(3)-Projeto 3", "\n")
+          leia (optprojn)
+          se (optprojn == "1" ou optprojn == "2" ou optprojn == "3") {
+            escreva ("######## Projeto Vis�vel ########", "\n")
+          }
+          senao {
+            enquanto (optprojn != "1" e optprojn != "2" e optprojn != "3") {
+              escreva("########## PROJETO N�O EXISTE ##########\nEscolha um Projeto\n")
+              leia(optprojn)
+            }
+            escreva ("################## Projeto Vis�vel ##################", "\n\n\n")
+          }
+        }
+        senao se (optport == "modificar") {
+          escreva ("Selecione um projeto:", "\n", "(1)-Projeto 1", "\n", "(2)-Projeto 2", "\n", "(3)-Projeto 3", "\n")
+          leia (optprojn)
+          se (optprojn == "1" ou optprojn == "2" ou optprojn == "3") {
+            escreva ("################## Projeto Vis�vel ##################", "\n\n","Digite uma nova descri��o: \n")
+            leia(resumo)
+            escreva("################## Projeto Modificado ##################\n\n\n")
+          }
+          senao {
+            enquanto (optprojn != "1" e optprojn != "2" e optprojn != "3") {
+              escreva("########## PROJETO N�O EXISTE ##########\nEscolha um Projeto\n")
+              leia(optprojn)
+            }
+            escreva ("################## Projeto Vis�vel ##################", "\n\n","Digite uma descri��o: ")
+            leia(resumo)
+            escreva("################## Projeto Modificado ##################\n\n\n")
+          }
+        }
+        senao se (optport == "upload") {
+          escreva ("Selecione a pasta onde est� seu arquivo", "\n\nDigite o caminho do arquivo/diret�rio: ")
+          leia(arquivo)
+          escreva (arquivo, " selecionado, Upload feito com sucesso!", "\n")
+        } 
+        }
+      senao se (optuser == "buscar projeto"){
+        escreva("\nCarregando categorias de projetos dispon�veis...\n")
+
+        enquanto (continuarn) {
+          continuarn = falso
+          escreva("\nDigite numericamente uma das categoria abaixo:\n")
+          escreva("1. Motion Design\n")
+          escreva("2. Web Design\n")
+          escreva("3. Filmaker\n")
+          escreva("4. Logotipo\n")
+          escreva("5. Vetoriza��o\n")
+          escreva("6. Voltar\n")
+          inteiro cat
+          leia(cat)
+
+          se (cat >= 1 e cat <= 5) {
+              se (cat == 1) {
+                  escreva("Projetos de Motion Design encontrados!\n")
+                  escreva("Digite numericamente um dos projetos abaixo para seleciona-lo:\n\n")
+                  escreva("1. Projeto de Motion Design criado por Ana Oliveira.\nObjetivo: Crie uma abertura animada para um v�deo, incorporando o logotipo da empresa ou marca com anima��es din�micas e transi��es criativas.\nPrazo de entrega sugerido pelo cliente: 13 dias\n\n")
+                  escreva("2. Projeto de Motion Design criado por Lucas Almeida.\nObjetivo: Desenvolva uma anima��o para visualizar dados ou estat�sticas de forma mais envolvente, utilizando gr�ficos animados e efeitos visuais para destacar pontos-chave.\nPrazo de entrega sugerido pelo cliente: 7 dias\n\n")
+                  escreva("3. Projeto de Motion Design criado por Rafael Oliveira.\nObjetivo: Produza um v�deo animado para explicar um conceito complexo ou processo de forma simplificada e visualmente atrativa, utilizando ilustra��es animadas e narra��o.\nPrazo de entrega sugerido pelo cliente: 16 dias\n\n")
+                  escreva("4. Projeto de Motion Design criado por Felipe Vieira.\nObjetivo: Crie uma anima��o utilizando texto e tipografia para transmitir uma mensagem ou contar uma hist�ria de maneira criativa, explorando diferentes estilos de fonte e movimentos.\nPrazo de entrega sugerido pelo cliente: 9 dias\n\n")                
+                  leia(cate)
+                    enquanto (cate < 1 ou cate > 4) {
+                     escreva("Projeto indispon�vel.\nEscolha um projeto dispon�vel citado acima.\n")
+                      leia(cate)
+                      }
+                    se(cate == 1){
+                      escreva("Projeto de Ana Oliveira selecionado.\n")
+                      escreva("Entre em contato com o Ana Oliveira para mais detalhes sobre projeto.\n")}                  
+                    se(cate == 2){
+                      escreva("Projeto de Lucas Almeida selecionado.\n")
+                      escreva("Entre em contato com o Lucas Almeida para mais detalhes sobre projeto.\n")}
+                    se(cate == 3){
+                      escreva("Projeto de Rafael Oliveira selecionado.\n")
+                      escreva("Entre em contato com o Rafael Oliveira para mais detalhes sobre projeto.\n")}
+                    se(cate == 4){
+                      escreva("Projeto de Felipe Vieira selecionado.\n")
+                      escreva("Entre em contato com o Felipe Vieira para mais detalhes sobre projeto.\n")}                             
+              } senao se (cat == 2) {
+                  escreva("Projetos de Web-designer encontrados!\n\n")
+                  escreva("1. Projeto de Web-designer criado por Marcelo Carvalho.\nObjetivo: Crie um site para exibir seu pr�prio portf�lio, destacando seus trabalhos, habilidades e experi�ncia de forma organizada e visualmente atraente.\nPrazo de entrega sugerido pelo cliente: 14 dias\n\n")
+                  escreva("2. Projeto de Web-designer criado por Bruna Fernandes.\nObjetivo: Desenvolva um blog pessoal ou profissional, onde voc� pode compartilhar seus pensamentos, experi�ncias ou conhecimentos sobre um determinado tema, utilizando um layout limpo e f�cil de navegar.\nPrazo de entrega sugerido pelo cliente: 18 dias\n\n")
+                  escreva("3. Projeto de Web-designer criado por Let�cia Pereira.\nObjetivo: Projete um site para um restaurante local, incluindo menu, informa��es de contato, hor�rio de funcionamento e possivelmente uma galeria de fotos dos pratos oferecidos, garantindo uma experi�ncia de usu�rio intuitiva e apetitosa.\nPrazo de entrega sugerido pelo cliente: 15 dias\n\n")
+                  escreva("4. Projeto de Web-designer criado por Camila Sousa.\nObjetivo: Crie uma loja online para vender produtos f�sicos ou digitais, garantindo uma navega��o f�cil, sistema de pagamento seguro e uma apresenta��o visualmente atraente dos produtos.\nPrazo de entrega sugerido pelo cliente: 18 dias\n\n")
+                  escreva("5. Projeto de Web-designer criado por Laura Rodrigues.\nObjetivo: Desenvolva um site para promover um evento espec�fico, como um concerto, confer�ncia ou festival, fornecendo informa��es detalhadas sobre o evento, programa��o, palestrantes/artistas e op��es de compra de ingressos, com um design que reflita a atmosfera e o tema do evento.\nPrazo de entrega sugerido pelo cliente: 23 dias\n\n")
+                  escreva("6. Projeto de Web-designer criado por Bruno Fernandes.\nObjetivo: Projete um site para uma ag�ncia de viagens, apresentando destinos, pacotes de viagem, depoimentos de clientes e ferramentas de pesquisa de viagens, com uma abordagem visualmente atrativa e inspiradora para despertar o interesse dos visitantes.\nPrazo de entrega sugerido pelo cliente: 20 dias\n\n")
+                  leia(cate)
+                        enquanto (cate < 1 ou cate > 6) {
+                        escreva("Projeto indispon�vel.\nEscolha um projeto dispon�vel citado acima.\n")
+                          leia(cate)
+                          }
+                        se(cate == 1){
+                          escreva("Projeto de Marcelo Carvalho selecionado.\n")
+                          escreva("Entre em contato com o Marcelo Carvalho para mais detalhes sobre projeto.\n")}                  
+                        se(cate == 2){
+                          escreva("Projeto de Bruna Fernandes selecionado.\n")
+                          escreva("Entre em contato com o Bruna Fernandes para mais detalhes sobre projeto.\n")}
+                        se(cate == 3){
+                          escreva("Projeto de Let�cia Pereira selecionado.\n")
+                          escreva("Entre em contato com o Let�cia Pereira para mais detalhes sobre projeto.\n")}
+                        se(cate == 4){
+                          escreva("Projeto de Camila Sousa selecionado.\n")
+                          escreva("Entre em contato com o Camila Sousa para mais detalhes sobre projeto.\n")}
+                        se(cate == 5){
+                          escreva("Projeto de Laura Rodrigues selecionado.\n")
+                          escreva("Entre em contato com o Laura Rodrigues para mais detalhes sobre projeto.\n")}  
+                        se(cate == 6){
+                          escreva("Projeto de Bruno Fernandes selecionado.\n")
+                          escreva("Entre em contato com o Bruno Fernandes para mais detalhes sobre projeto.\n")}    
+              } senao se (cat == 3) {
+                  escreva("Projetos de Filmaker encontrados!\n\n")
+                  escreva("1. Projeto de Filmaker criado por Gabriella Oliveira.\nObjetivo: Crie um curta-metragem contando uma hist�ria fict�cia ou baseada em eventos reais, explorando temas como amor, amizade, supera��o, ou qualquer outro tema que voc� considere interessante.\nPrazo de entrega sugerido pelo cliente: 36 dias\n\n")
+                  escreva("2. Projeto de Filmaker criado por Jo�o Silva.\nObjetivo: Produza um document�rio curto sobre um tema de interesse pessoal ou relev�ncia social, entrevistando pessoas, mostrando lugares e apresentando fatos de uma maneira informativa e envolvente.\nPrazo de entrega sugerido pelo cliente: 28 dias\n\n")
+                  leia(cate)
+                        enquanto (cate < 1 ou cate > 2) {
+                        escreva("Projeto indispon�vel.\nEscolha um projeto dispon�vel citado acima.\n")
+                          leia(cate)
+                          }
+                        se(cate == 1){
+                          escreva("Projeto de Gabriella Oliveira selecionado.\n")
+                          escreva("Entre em contato com o Gabriella Oliveira para mais detalhes sobre projeto.\n")}                  
+                        se(cate == 2){
+                          escreva("Projeto de Jo�o Silva selecionado.\n")
+                          escreva("Entre em contato com o Jo�o Silva para mais detalhes sobre projeto.\n")}
+              } senao se (cat == 4) {
+                  escreva("Projetos de Logotipo encontrados!\n\n")
+                  escreva("1. Projeto de Logotipo criado por Juliana Carvalho.\nObjetivo: Crie um logotipo para uma cafeteria local, incorporando elementos como uma x�cara de caf�, gr�os de caf� ou uma silhueta de uma cafeteira, utilizando cores quentes e aconchegantes para transmitir uma atmosfera acolhedora.\nPrazo de entrega sugerido pelo cliente: 5 dias\n\n")
+                  escreva("2. Projeto de Logotipo criado por Patr�cia Rodrigues.\nObjetivo:  Desenvolva um logotipo para uma empresa de consultoria financeira, utilizando formas geom�tricas s�lidas e cores s�brias para transmitir confian�a, estabilidade e profissionalismo.\nPrazo de entrega sugerido pelo cliente: 4 dias\n\n")
+                  escreva("3. Projeto de Logotipo criado por Thiago Alves.\nObjetivo:  Projete um logotipo para uma boutique de moda, incorporando elementos como cabides, sacolas de compras ou formas estilizadas de roupas, e escolha cores que reflitam a personalidade da marca e o estilo das cole��es.\nPrazo de entrega sugerido pelo cliente: 5 dias\n\n")
+                  leia(cate)
+                        enquanto (cate < 1 ou cate > 3) {
+                        escreva("Projeto indispon�vel.\nEscolha um projeto dispon�vel citado acima.\n")
+                          leia(cate)
+                          }
+                        se(cate == 1){
+                          escreva("Projeto de Juliana Carvalho selecionado.\n")
+                          escreva("Entre em contato com o Juliana Carvalho para mais detalhes sobre projeto.\n")}                  
+                        se(cate == 2){
+                          escreva("Projeto de Patr�cia Rodrigues selecionado.\n")
+                          escreva("Entre em contato com o Patr�cia Rodrigues para mais detalhes sobre projeto.\n")}
+                        se(cate == 3){
+                          escreva("Projeto de Thiago Alves selecionado.\n")
+                          escreva("Entre em contato com o Thiago Alves para mais detalhes sobre projeto.\n")}
+              } senao se (cat == 5) {
+                  escreva("Projetos de Vetoriza��o encontrados!\n\n")
+                  escreva("1. Projeto de Vetoriza��o criado por Raquel Mendes.\nObjetivo: Crie �cones e pictogramas vetorizados para uso em interfaces de usu�rio, websites, infogr�ficos ou materiais impressos, garantindo consist�ncia visual e clareza de comunica��o.\nPrazo de entrega sugerido pelo cliente: 9 dias\n\n")
+                  escreva("2. Projeto de Vetoriza��o criado por Sofia Martins.\nObjetivo: Converta desenhos t�cnicos ou esquem�ticos em vetores, facilitando a edi��o, aprimoramento e compartilhamento de projetos de engenharia, arquitetura ou design industrial.\nPrazo de entrega sugerido pelo cliente: 10 dias\n\n")
+                  leia(cate)
+                        enquanto (cate < 1 ou cate > 2) {
+                        escreva("Projeto indispon�vel.\nEscolha um projeto dispon�vel citado acima.\n")
+                          leia(cate)
+                          }
+                        se(cate == 1){
+                          escreva("Projeto de Raquel Mendes selecionado.\n")
+                          escreva("Entre em contato com o Raquel Mendes para mais detalhes sobre projeto.\n")}                  
+                        se(cate == 2){
+                          escreva("Projeto de Sofia Martins selecionado.\n")
+                          escreva("Entre em contato com o Sofia Martins para mais detalhes sobre projeto.\n")}                
+              }
+          } senao se (cat == 6) {
+              continuarn = falso
+              escreva("\nVoltando ao menu principal...\n")
+          } senao {
+              escreva("\nOp��o inv�lida. Por favor, selecione uma op��o v�lida.\n")
+            }
+          } 
+        }
+      senao se (optuser == "sair"){
+        escreva ("Saindo do programa...", "\n")
+        continuar = falso
+      }
+    }
+  }
+}
+// prof pediu para que os "projetos" mencionados/escolhidos pelo usu�rio seja algo existente, seja um conte�do, um texto, por mais que seja gen�rico, pediu
+// para que ao menos seja alguma coisa
+
+// na aba uploads, pe�a para que o usu�rio envie alguma coisa e depois armazene essa coisa com um nome novo de projeto que o usu�rio vai colocar para que quando
+// seja acessado apare�a seu conte�do ou pe�a algum tipo de c�digo e quando aperte para modificar ele permita alguma modifica��o ou tamb�m pe�a algum c�digo para
+// acesso e modifica��o
+
+//menu inicial: criar aviso de op��o inv�lida
+
+//"criar": adicionar op��o '(6)-Sair'
